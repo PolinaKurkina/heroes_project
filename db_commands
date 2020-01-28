@@ -1,0 +1,39 @@
+CREATE TABLE Heroes
+(
+ id_hero INT NOT NULL AUTO_INCREMENT,
+ f_name VARCHAR(50),
+ m_name VARCHAR(50),
+ l_name VARCHAR(50),
+ d_birth VARCHAR(30),
+ p_call VARCHAR(100),
+ rank INT,
+ p_duty INT,
+ d_death VARCHAR(50),
+ p_death VARCHAR(100),
+ addition VARCHAR(100)
+ PRIMARY KEY (id_hero),
+ FOREIGN KEY (rank) REFERENCES Ranks (id_rank),
+ FOREIGN KEY (p_duty) REFERENCES Places_of_duty (id_place)
+);
+
+DROP TABLE IF EXISTS Heroes;
+
+CREATE TABLE Ranks
+(
+ id_rank INT NOT NULL AUTO_INCREMENT,
+ short_name VARCHAR(30),
+ name VARCHAR(50),
+ PRIMARY KEY (id_rank)
+);
+
+DROP TABLE IF EXISTS Ranks;
+
+CREATE TABLE Places_of_duty
+(
+ id_place INT NOT NULL AUTO_INCREMENT,
+ short_name VARCHAR(30),
+ name VARCHAR(50),
+ PRIMARY KEY (id_place)
+);
+
+DROP TABLE IF EXISTS Places_of_duty;
